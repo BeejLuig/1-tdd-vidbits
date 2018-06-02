@@ -19,8 +19,11 @@ router.get('/videos/create', async (req, res) => {
 });
 
 router.get('/videos/:id', async (req, res) => {
-  const video = await Video.findOne({ _id: req.params.id });
-
+  const video = await Video.findById(req.params.id, (err) => {
+    if (err) {
+      res.status(404).render('404');
+    }
+  });
   if (video) {
     res.render('videos/show', video);
   }
