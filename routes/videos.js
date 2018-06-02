@@ -14,7 +14,7 @@ router.post('/videos', async (req, res) => {
   }
 });
 
-router.get('/videos/create', async (req, res) => {
+router.get('/videos/create', (req, res) => {
   res.status(200).render('videos/create');
 });
 
