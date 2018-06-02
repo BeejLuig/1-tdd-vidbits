@@ -52,9 +52,7 @@ router.post('/videos/:id/update', async (req, res) => {
 
 router.post('/videos/:id/delete', async (req, res) => {
   const { id } = req.params;
-
   await Video.remove({ _id: id });
-
   res.redirect('/');
 });
 
